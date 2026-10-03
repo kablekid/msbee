@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  --color-honey-50: #fffbeb;
+  --color-honey-100: #fef3c7;
+  --color-honey-200: #fde68a;
+  --color-honey-300: #fcd34d;
+  --color-honey-400: #fbbf24;
+  --color-honey-500: #f59e0b;
+  --color-honey-600: #d97706;
+  --color-honey-700: #b45309;
+  --color-hive-900: #1f1a14;
+  --color-hive-800: #2e271e;
+  --color-hive-700: #4a3f31;
+  --color-leaf-500: #22a06b;
+  --color-sky-soft: #e0f2fe;
+  --color-berry-500: #e5487a;
+
+  --font-display: var(--font-fredoka), ui-rounded, system-ui, sans-serif;
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fffdf7;
+  color: var(--color-hive-900);
+  font-family: var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+}
+
+.hex-pattern {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='%23f59e0b' stroke-opacity='0.18' stroke-width='2'/%3E%3Cpath d='M28 0L28 34L0 50L0 84L28 100L56 84L56 50L28 34' fill='none' stroke='%23f59e0b' stroke-opacity='0.12' stroke-width='2'/%3E%3C/svg%3E");
+}
+
+.clip-hex {
+  clip-path: polygon(25% 5%, 75% 5%, 100% 50%, 75% 95%, 25% 95%, 0% 50%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
