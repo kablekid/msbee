@@ -90,7 +90,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl overflow-hidden px-4 py-24">
+      <section className="mx-auto max-w-7xl px-4 py-24">
         <BooksTeaser />
       </section>
 

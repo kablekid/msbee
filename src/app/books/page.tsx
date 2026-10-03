@@ -5,11 +5,11 @@ import BookShelf from "@/components/BookShelf";
 import CTABanner from "@/components/CTABanner";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
-import { bookPublisher, site } from "@/lib/data";
+import { books, site } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Ms Bee Activity Books",
-  description: "Ms Bee's own brand of activity books for young learners: alphabet tracing, Jolly Phonics CVC words, counting 1–20, and color by numbers.",
+  description: "Ms Bee's own brand of activity books for ages 3+: First Step, alphabet tracing, Jolly Phonics CVC words, maths, nature, and color by numbers.",
 };
 
 const perks = [
@@ -22,14 +22,14 @@ export default function BooksPage() {
   return (
     <>
       <PageHero
-        eyebrow={`Our Own Brand · ${bookPublisher}`}
+        eyebrow={`Our Own Brand · ${books.length} Titles`}
         title="Ms Bee Activity Books"
         text="Colourful, levelled activity books that bring Ms Bee's classroom home: phonics, handwriting, maths, and more."
         gradient="from-pink-100 via-honey-50 to-[#fffdf7]"
       />
 
       <section className="mx-auto max-w-7xl px-4 py-20">
-        <SectionHeading eyebrow="The Collection" title="Find the right book" text="Hover over a cover to tilt it, and tap one to see what's inside." />
+        <SectionHeading eyebrow="The Collection" title="Meet the whole hive of books" text="Pause on any cover, or tap it to see what's inside." />
         <BookShelf />
       </section>
 

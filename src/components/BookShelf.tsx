@@ -4,7 +4,8 @@ import Image from "next/image";
 import { AnimatePresence, motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { Check, MessageCircle, X } from "lucide-react";
 import { useEffect, useState } from "react";
-import { bookPublisher, books, site, type BookSubject } from "@/lib/data";
+import { books, site, type BookSubject } from "@/lib/data";
+import BooksMarquee from "./BooksMarquee";
 
 type Book = (typeof books)[number];
 
@@ -73,6 +74,16 @@ export default function BookShelf() {
 
   return (
     <div>
+      <BooksMarquee onSelect={setOpen} />
+
+      <div className="mt-20 mb-12 text-center">
+        <span className="inline-block rounded-full bg-honey-100 px-4 py-1 text-sm font-bold tracking-wide text-honey-700 uppercase">
+          Browse by Subject
+        </span>
+        <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">Find the right book</h2>
+        <p className="mt-3 text-lg text-hive-700">Hover over a cover to tilt it, and tap one to see what&apos;s inside.</p>
+      </div>
+
       <div className="mb-12 flex flex-wrap justify-center gap-2" role="tablist">
         {filters.map((f) => (
           <button key={f} role="tab" aria-selected={filter === f} onClick={() => setFilter(f)} className="relative rounded-full px-5 py-2.5 font-bold">
@@ -153,7 +164,12 @@ export default function BookShelf() {
                     </li>
                   ))}
                 </ul>
-                <p className="mt-5 text-sm text-hive-700">Published by {bookPublisher} · 2023</p>
+                {open.publisher && (
+                  <p className="mt-5 text-sm text-hive-700">
+                    Published by {open.publisher}
+                    {open.year ? ` · ${open.year}` : ""}
+                  </p>
+                )}
                 <a
                   href={orderLink(open)}
                   target="_blank"

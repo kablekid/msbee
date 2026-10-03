@@ -338,9 +338,12 @@ export const gallery: { id: number; title: string; category: GalleryCategory; em
   { id: 12, title: "Online class", category: "Tutoring", emoji: "💻", gradient: "from-slate-200 to-gray-300" },
 ];
 
-export type BookSubject = "Math" | "Phonics & Reading" | "Writing" | "Art";
+export type BookSubject = "Early Learning" | "Math" | "Phonics & Reading" | "Writing" | "Science" | "Art";
 
-// Ms Bee Activity Books — published by HA Vision Publishers.
+const HA = "HA Vision Publishers";
+const MSB = "Ms. Bee Publishers";
+
+// Ms Bee Activity Books — Ms Bee's own brand.
 export const books: {
   slug: string;
   title: string;
@@ -351,7 +354,44 @@ export const books: {
   description: string;
   skills: string[];
   accent: string;
+  publisher?: string;
+  year?: number;
 }[] = [
+  {
+    slug: "first-step",
+    title: "First Step",
+    series: "Activity Book · Ages 3–4",
+    level: "Ages 3–4",
+    subject: "Early Learning",
+    cover: "/books/first-step.jpg",
+    description: "Ms Bee's first activity book for little learners, with more than 60 activities that build the pre-writing and fine motor skills children need before school.",
+    skills: ["60+ activities", "Pre-writing skills", "Fine motor practice"],
+    accent: "bg-orange-500",
+    publisher: MSB,
+  },
+  {
+    slug: "first-step-all-in-one",
+    title: "First Step: All in One",
+    series: "Math · Science · English · Handwriting",
+    level: "Ages 3–4",
+    subject: "Early Learning",
+    cover: "/books/first-step-all-in-one.jpg",
+    description: "Four subjects in one book: early maths, science, English, and handwriting, with more than 60 activities for ages 3–4.",
+    skills: ["60+ activities", "Math, science & English", "Handwriting & fine motor"],
+    accent: "bg-rose-400",
+    publisher: MSB,
+  },
+  {
+    slug: "alphabet-tracing-book-1",
+    title: "Alphabet Tracing Book for Kids",
+    series: "First Handwriting · Book 1",
+    level: "Book 1",
+    subject: "Writing",
+    cover: "/books/alphabet-tracing-book-1.jpg",
+    description: "A first handwriting book where children trace every letter of the alphabet and grow neat, confident writing habits.",
+    skills: ["Letter tracing", "Pencil grip & control", "Letter recognition"],
+    accent: "bg-sky-600",
+  },
   {
     slug: "alphabet-tracing",
     title: "Alphabet Tracing",
@@ -362,6 +402,21 @@ export const books: {
     description: "Guided tracing of every letter, capital and small, to build confident, neat handwriting from A to Z.",
     skills: ["Letter formation", "Pencil control", "Letter recognition"],
     accent: "bg-red-500",
+    publisher: HA,
+    year: 2023,
+  },
+  {
+    slug: "jolly-phonics-cvc-words",
+    title: "Jolly Phonics CVC Words",
+    series: "Consonant–Vowel–Consonant",
+    level: "Level II",
+    subject: "Phonics & Reading",
+    cover: "/books/jolly-phonics-cvc-words.jpg",
+    description: "Blend sounds into simple three-letter words like cat, sun, and pig, the next step to independent reading.",
+    skills: ["Sound blending", "Word building", "Early reading"],
+    accent: "bg-cyan-500",
+    publisher: HA,
+    year: 2023,
   },
   {
     slug: "math-counting-1-20",
@@ -373,17 +428,34 @@ export const books: {
     description: "Count, trace, and match numbers 1 to 20 with colourful fruits and vegetables. Early numeracy made delicious!",
     skills: ["Counting 1–20", "Number writing", "One-to-one matching"],
     accent: "bg-honey-500",
+    publisher: HA,
+    year: 2023,
   },
   {
-    slug: "jolly-phonics-cvc-words",
-    title: "Jolly Phonics CVC Words",
-    series: "Consonant–Vowel–Consonant",
+    slug: "math-level-2",
+    title: "Math",
+    series: "Numbers & Operations",
     level: "Level II",
-    subject: "Phonics & Reading",
-    cover: "/books/jolly-phonics-cvc-words.jpg",
-    description: "Blend sounds into simple three-letter words like cat, sun, and pig, the next step to independent reading.",
-    skills: ["Sound blending", "Word building", "Early reading"],
-    accent: "bg-sky-500",
+    subject: "Math",
+    cover: "/books/math-level-2.jpg",
+    description: "The next step in maths: numbers, adding and taking away, and fun number puzzles that build confidence.",
+    skills: ["Number sense", "Addition & subtraction", "Problem-solving"],
+    accent: "bg-violet-500",
+    publisher: HA,
+    year: 2023,
+  },
+  {
+    slug: "nature",
+    title: "Nature",
+    series: "Animals & the World Around Us",
+    level: "All levels",
+    subject: "Science",
+    cover: "/books/nature.jpg",
+    description: "Meet giraffes, zebras, elephants, lions, and more. Activities that spark curiosity about animals and nature.",
+    skills: ["Animal names & facts", "Observation", "Early science vocabulary"],
+    accent: "bg-green-600",
+    publisher: HA,
+    year: 2023,
   },
   {
     slug: "color-by-numbers",
@@ -395,7 +467,7 @@ export const books: {
     description: "Follow the number key to reveal colourful pictures while practising number and colour recognition.",
     skills: ["Number recognition", "Colour names", "Fine motor skills"],
     accent: "bg-pink-500",
+    publisher: HA,
+    year: 2023,
   },
 ];
-
-export const bookPublisher = "HA Vision Publishers";
