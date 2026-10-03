@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
+import BooksTeaser from "@/components/BooksTeaser";
 import CTABanner from "@/components/CTABanner";
 import FAQAccordion from "@/components/FAQAccordion";
 import FeesAtAGlance from "@/components/FeesAtAGlance";
@@ -87,6 +88,10 @@ export default function Home() {
             })}
           </div>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl overflow-hidden px-4 py-24">
+        <BooksTeaser />
       </section>
 
       <section className="bg-gradient-to-b from-white to-honey-50 py-24">

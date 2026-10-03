@@ -19,6 +19,7 @@ npm run lint
 | `/programs` | Full price list: focus group, one-to-one, VIP intensive, online class |
 | `/early-years` | Early Years Readiness Program fees, learning areas, daycare inquiry |
 | `/summer-camp` | Interactive weekly theme picker and camp activities |
+| `/books` | Ms Bee Activity Books: filterable 3D-tilt bookshelf, details view, order on WhatsApp |
 | `/about` | Introduction, vision, mission, core values, teaching approach, future goals |
 | `/gallery` | Filterable gallery with keyboard-navigable lightbox |
 | `/contact` | Phones, WhatsApp, directions, and an enrollment form (`?program=vip` etc. preselects a program) |

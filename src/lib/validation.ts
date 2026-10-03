@@ -15,6 +15,7 @@ export const programOptions = [
   { value: "early-years", label: "Early Years" },
   { value: "daycare", label: "Daycare" },
   { value: "camp", label: "Summer Camp" },
+  { value: "books", label: "Activity Books" },
   { value: "other", label: "General Question" },
 ];
 

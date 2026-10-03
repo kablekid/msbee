@@ -54,6 +54,7 @@ export const navLinks = [
   { href: "/programs", label: "Programs & Fees" },
   { href: "/early-years", label: "Early Years" },
   { href: "/summer-camp", label: "Summer Camp" },
+  { href: "/books", label: "Books" },
   { href: "/about", label: "About" },
   { href: "/gallery", label: "Gallery" },
 ];
@@ -168,7 +169,7 @@ export const futureGoals = [
   "Expand services to include digital learning programs",
   "Partner with international curricula and schools",
   "Open additional branches across the city",
-  "Develop branded educational materials — Ms Bee Activity Books",
+  "Grow the Ms Bee Activity Books collection with new titles and levels",
 ];
 
 export const subjects: { name: string; icon: LucideIcon; text: string }[] = [
@@ -336,3 +337,65 @@ export const gallery: { id: number; title: string; category: GalleryCategory; em
   { id: 11, title: "Story time", category: "Early Years", emoji: "🐝", gradient: "from-yellow-200 to-honey-300" },
   { id: 12, title: "Online class", category: "Tutoring", emoji: "💻", gradient: "from-slate-200 to-gray-300" },
 ];
+
+export type BookSubject = "Math" | "Phonics & Reading" | "Writing" | "Art";
+
+// Ms Bee Activity Books — published by HA Vision Publishers.
+export const books: {
+  slug: string;
+  title: string;
+  series: string;
+  level: string;
+  subject: BookSubject;
+  cover: string;
+  description: string;
+  skills: string[];
+  accent: string;
+}[] = [
+  {
+    slug: "alphabet-tracing",
+    title: "Alphabet Tracing",
+    series: "Handwriting Practice Book",
+    level: "Level I",
+    subject: "Writing",
+    cover: "/books/alphabet-tracing.jpg",
+    description: "Guided tracing of every letter, capital and small, to build confident, neat handwriting from A to Z.",
+    skills: ["Letter formation", "Pencil control", "Letter recognition"],
+    accent: "bg-red-500",
+  },
+  {
+    slug: "math-counting-1-20",
+    title: "Counting Numbers 1–20",
+    series: "Math · Fruits and Vegetables",
+    level: "Level 1",
+    subject: "Math",
+    cover: "/books/math-counting-1-20.jpg",
+    description: "Count, trace, and match numbers 1 to 20 with colourful fruits and vegetables. Early numeracy made delicious!",
+    skills: ["Counting 1–20", "Number writing", "One-to-one matching"],
+    accent: "bg-honey-500",
+  },
+  {
+    slug: "jolly-phonics-cvc-words",
+    title: "Jolly Phonics CVC Words",
+    series: "Consonant–Vowel–Consonant",
+    level: "Level II",
+    subject: "Phonics & Reading",
+    cover: "/books/jolly-phonics-cvc-words.jpg",
+    description: "Blend sounds into simple three-letter words like cat, sun, and pig, the next step to independent reading.",
+    skills: ["Sound blending", "Word building", "Early reading"],
+    accent: "bg-sky-500",
+  },
+  {
+    slug: "color-by-numbers",
+    title: "Color by Numbers",
+    series: "Activity & Colouring",
+    level: "All levels",
+    subject: "Art",
+    cover: "/books/color-by-numbers.jpg",
+    description: "Follow the number key to reveal colourful pictures while practising number and colour recognition.",
+    skills: ["Number recognition", "Colour names", "Fine motor skills"],
+    accent: "bg-pink-500",
+  },
+];
+
+export const bookPublisher = "HA Vision Publishers";

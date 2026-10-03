@@ -43,14 +43,14 @@ export default function Navbar() {
           </span>
         </Link>
 
-        <ul className="hidden items-center gap-1 lg:flex">
+        <ul className="hidden items-center gap-1 xl:flex">
           {navLinks.map((link) => {
             const active = pathname === link.href;
             return (
               <li key={link.href} className="relative">
                 <Link
                   href={link.href}
-                  className={`relative z-10 block rounded-full px-4 py-2 font-semibold transition ${
+                  className={`relative z-10 block rounded-full px-4 py-2 font-semibold whitespace-nowrap transition ${
                     active ? "text-hive-900" : "text-hive-700 hover:text-hive-900"
                   }`}
                 >
@@ -77,7 +77,7 @@ export default function Navbar() {
           </Link>
           <button
             onClick={() => setOpen((o) => !o)}
-            className="rounded-full p-2 text-hive-900 hover:bg-honey-100 lg:hidden"
+            className="rounded-full p-2 text-hive-900 hover:bg-honey-100 xl:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
           >
@@ -90,14 +90,14 @@ export default function Navbar() {
         {open && (
           <>
             <motion.div
-              className="fixed inset-0 top-0 -z-10 bg-hive-900/40 lg:hidden"
+              className="fixed inset-0 top-0 -z-10 bg-hive-900/40 xl:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setOpen(false)}
             />
             <motion.div
-              className="absolute inset-x-4 top-full mt-2 rounded-3xl bg-white p-4 shadow-2xl lg:hidden"
+              className="absolute inset-x-4 top-full mt-2 rounded-3xl bg-white p-4 shadow-2xl xl:hidden"
               initial={{ opacity: 0, y: -16, scale: 0.97 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -16, scale: 0.97 }}
