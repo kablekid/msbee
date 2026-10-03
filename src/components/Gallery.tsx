@@ -5,7 +5,7 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { gallery, type GalleryCategory } from "@/lib/data";
 
-const filters: ("All" | GalleryCategory)[] = ["All", "Tutoring", "Summer Camp", "Daycare"];
+const filters: ("All" | GalleryCategory)[] = ["All", "Tutoring", "Early Years", "Summer Camp"];
 
 export default function Gallery({ limit }: { limit?: number }) {
   const [filter, setFilter] = useState<(typeof filters)[number]>("All");

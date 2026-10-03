@@ -10,11 +10,11 @@ const nunito = Nunito({ variable: "--font-nunito", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: `${site.name} | Tutoring, Summer Camp & Daycare`,
+    default: `${site.fullName} | Tutoring in Addis Ababa`,
     template: `%s | ${site.name}`,
   },
   description:
-    "Ms Bee Educational Support offers tutoring and homework help, a fun-filled summer camp, and a caring daycare center for children of all ages.",
+    "Ms Bee Educational Support and Tutorial Center in Torhailoch, Addis Ababa: focus-group and one-to-one tutoring, VIP intensive and online classes, early years readiness, and summer camp. Learn • Grow • Succeed.",
 };
 
 export default function RootLayout({

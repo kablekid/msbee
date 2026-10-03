@@ -1,12 +1,12 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { navLinks, site } from "@/lib/data";
-import BeeMascot from "./BeeMascot";
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -34,7 +34,7 @@ export default function Navbar() {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2" aria-label={`${site.name} home`}>
-          <BeeMascot className="h-11 w-12" flying={false} />
+          <Image src="/logo.png" alt="" width={48} height={48} priority className="h-12 w-12 rounded-full bg-white shadow-sm ring-2 ring-honey-300" />
           <span className="leading-tight">
             <span className="block font-display text-xl font-semibold text-hive-900">{site.shortName}</span>
             <span className="block text-[11px] font-bold tracking-wider text-honey-700 uppercase">

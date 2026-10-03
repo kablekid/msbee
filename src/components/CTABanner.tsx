@@ -5,7 +5,7 @@ import { site } from "@/lib/data";
 
 export default function CTABanner({
   title = "Ready to join the hive?",
-  text = "Schedule a tour, book a free assessment, or ask us anything. We'd love to meet your family.",
+  text = "Visit us in Torhailoch, call, or send us a message. We'd love to meet your family and find the right program for your child.",
 }: {
   title?: string;
   text?: string;
@@ -24,11 +24,11 @@ export default function CTABanner({
             <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
           </Link>
           <a
-            href={`tel:${site.phone.replace(/[^\d]/g, "")}`}
+            href={`tel:${site.phones[1].tel}`}
             className="inline-flex items-center gap-2 rounded-full bg-white/70 px-7 py-3.5 font-bold text-hive-900 transition hover:bg-white"
           >
             <Phone className="h-5 w-5" />
-            {site.phone}
+            {site.phones[1].display}
           </a>
         </div>
       </AnimatedSection>

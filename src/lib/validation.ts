@@ -8,10 +8,13 @@ export type ContactPayload = {
 };
 
 export const programOptions = [
-  { value: "tutoring", label: "Educational Support / Tutoring" },
-  { value: "camp", label: "Summer Camp" },
+  { value: "focus-group", label: "Focus Group" },
+  { value: "one-to-one", label: "One-to-One" },
+  { value: "vip", label: "VIP Intensive" },
+  { value: "online", label: "Online Class" },
+  { value: "early-years", label: "Early Years" },
   { value: "daycare", label: "Daycare" },
-  { value: "tour", label: "Schedule a Tour" },
+  { value: "camp", label: "Summer Camp" },
   { value: "other", label: "General Question" },
 ];
 

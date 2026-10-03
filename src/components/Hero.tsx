@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Star } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import BeeMascot from "./BeeMascot";
 
 const bubbles = [
   { label: "Tutoring", emoji: "📚", className: "top-6 left-0 bg-sky-100", delay: 0.6 },
   { label: "Summer Camp", emoji: "☀️", className: "top-1/2 -right-2 bg-honey-100", delay: 0.8 },
-  { label: "Daycare", emoji: "🧸", className: "bottom-4 left-6 bg-pink-100", delay: 1 },
+  { label: "Early Years", emoji: "🧸", className: "bottom-4 left-6 bg-emerald-100", delay: 1 },
 ];
 
 export default function Hero() {
@@ -21,11 +21,11 @@ export default function Hero() {
         <div>
           <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}>
             <Link
-              href="/summer-camp"
+              href="/programs"
               className="group inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-bold text-hive-800 shadow-md ring-1 ring-honey-200 transition hover:ring-honey-400"
             >
               <span className="rounded-full bg-honey-400 px-2 py-0.5 text-xs">NEW</span>
-              Summer Camp enrollment is open
+              Now enrolling: tutoring, early years & online
               <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
             </Link>
           </motion.div>
@@ -61,8 +61,8 @@ export default function Hero() {
             transition={{ delay: 0.25 }}
             className="mt-6 max-w-xl text-lg text-hive-700 sm:text-xl"
           >
-            Ms Bee Educational Support brings tutoring, an unforgettable summer camp, and a loving daycare together under
-            one happy roof — so your child can learn, play, and grow all year long.
+            Ms Bee Educational Support and Tutorial Center in Torhailoch, Addis Ababa offers tutoring from kindergarten to
+            high school, early years readiness, online classes, and a themed summer camp. Quality learning, better future.
           </motion.p>
 
           <motion.div
@@ -75,15 +75,15 @@ export default function Hero() {
               href="/contact"
               className="group inline-flex items-center justify-center gap-2 rounded-full bg-hive-900 px-8 py-4 text-lg font-bold text-white shadow-xl transition hover:-translate-y-0.5 hover:bg-hive-800"
             >
-              Book a Free Tour
+              Enroll Your Child
               <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
             </Link>
             <Link
-              href="#programs"
+              href="/programs"
               className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-lg font-bold text-hive-900 shadow-md ring-1 ring-honey-200 transition hover:-translate-y-0.5 hover:ring-honey-400"
             >
               <Sparkles className="h-5 w-5 text-honey-500" />
-              Explore Programs
+              Programs & Fees
             </Link>
           </motion.div>
 
@@ -96,12 +96,7 @@ export default function Hero() {
               ))}
             </div>
             <div>
-              <div className="flex text-honey-500">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-current" />
-                ))}
-              </div>
-              <p className="text-sm font-semibold text-hive-700">Loved by 850+ families</p>
+              <p className="text-sm font-semibold text-hive-700">Learn • Grow • Succeed</p>
             </div>
           </motion.div>
         </div>

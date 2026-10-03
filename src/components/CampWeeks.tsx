@@ -56,7 +56,7 @@ export default function CampWeeks() {
               <Icon className="h-10 w-10 text-orange-500" />
             </motion.div>
             <p className="mt-6 font-bold tracking-wide uppercase">
-              Week {week.week} · {week.dates}
+              Week {week.week}
             </p>
             <h3 className="mt-2 text-4xl font-semibold sm:text-5xl">{week.theme}</h3>
             <p className="mt-4 max-w-md text-lg text-hive-800">{week.text}</p>
