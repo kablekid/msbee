@@ -93,7 +93,7 @@ h4 {
     transform: translateX(0) skewX(-20deg);
   }
   100% {
-    transform: translateX(450%) skewX(-20deg);
+    transform: translateX(500%) skewX(-20deg);
   }
 }
 

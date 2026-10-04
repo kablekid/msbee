@@ -39,7 +39,7 @@ export default function MsBeeMascot({
         >
           <svg
             viewBox="0 0 200 200"
-            className="pointer-events-none absolute top-[24%] left-[-46%] w-[66%] overflow-visible"
+            className="pointer-events-none absolute top-[31%] left-[-46%] w-[66%] overflow-visible"
             aria-hidden="true"
           >
             <defs>

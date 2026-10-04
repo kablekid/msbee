@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, ClipboardCheck, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles } from "lucide-react";
 import Flower from "./Flower";
 import MsBeeMascot from "./MsBeeMascot";
 
@@ -87,22 +87,6 @@ export default function Hero() {
               <Sparkles className="h-5 w-5 text-honey-500" />
               Programs & Fees
             </Link>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, scale: 0.6, rotate: -8 }}
-            animate={{ opacity: 1, scale: 1, rotate: -2 }}
-            transition={{ delay: 0.7, type: "spring", stiffness: 220, damping: 12 }}
-            whileHover={{ rotate: 0, scale: 1.04 }}
-            className="relative mt-8 inline-flex max-w-full items-center gap-3 overflow-hidden rounded-2xl bg-hive-900 py-3 pr-5 pl-3 text-white shadow-xl shadow-hive-900/25"
-          >
-            <span className="clip-hex flex h-11 w-11 shrink-0 items-center justify-center bg-honey-400 text-hive-900">
-              <ClipboardCheck className="h-6 w-6" />
-            </span>
-            <span className="font-display text-base leading-snug font-medium sm:text-lg">
-              We use a <span className="text-honey-300">sophisticated school management system</span>
-            </span>
-            <span className="splash-shine pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 bg-gradient-to-r from-transparent via-white/25 to-transparent" />
           </motion.div>
 
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="mt-8 flex items-center gap-3">

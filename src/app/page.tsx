@@ -11,6 +11,7 @@ import Hero from "@/components/Hero";
 import ProgramCards from "@/components/ProgramCards";
 import SectionHeading from "@/components/SectionHeading";
 import StatsCounter from "@/components/StatsCounter";
+import SystemSplash from "@/components/SystemSplash";
 import { site, teachingApproach, whyUs } from "@/lib/data";
 
 export default function Home() {
@@ -20,6 +21,10 @@ export default function Home() {
 
       <section className="mx-auto -mt-4 max-w-6xl px-4">
         <StatsCounter />
+      </section>
+
+      <section className="mx-auto mt-12 max-w-6xl px-4">
+        <SystemSplash />
       </section>
 
       <section id="programs" className="mx-auto max-w-7xl scroll-mt-24 px-4 py-24">
