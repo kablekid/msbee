@@ -4,6 +4,7 @@ import { Check, Eye, Rocket, Target } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTABanner from "@/components/CTABanner";
 import PageHero from "@/components/PageHero";
+import PhotoStrip from "@/components/PhotoStrip";
 import SectionHeading from "@/components/SectionHeading";
 import { centerPhotos, coreValues, futureGoals, mission, site, teachingApproach, vision, whyUs } from "@/lib/data";
 
@@ -103,6 +104,17 @@ export default function AboutPage() {
             })}
           </div>
         </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pt-24">
+        <SectionHeading eyebrow="Life at Ms Bee" title="Curious minds at work" text="From circle time to our science fair, every day is full of discovery." />
+        <PhotoStrip
+          photos={[
+            { ...centerPhotos.scienceFair, caption: "Ms Bee Science Fair" },
+            { ...centerPhotos.experiment, caption: "Hands-on experiments" },
+            { ...centerPhotos.circleTime, caption: "Circle time" },
+          ]}
+        />
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-24">

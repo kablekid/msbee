@@ -6,8 +6,9 @@ import CTABanner from "@/components/CTABanner";
 import CurriculumSection from "@/components/CurriculumSection";
 import FAQAccordion from "@/components/FAQAccordion";
 import PageHero from "@/components/PageHero";
+import PhotoStrip from "@/components/PhotoStrip";
 import SectionHeading from "@/components/SectionHeading";
-import { earlyYears, focusGroup, formatEtb, oneToOne, online, subjects, vip } from "@/lib/data";
+import { centerPhotos, earlyYears, focusGroup, formatEtb, oneToOne, online, subjects, vip } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Programs & Fees",
@@ -173,6 +174,17 @@ export default function ProgramsPage() {
 
       <section className="mx-auto max-w-7xl px-4 pb-24">
         <CurriculumSection showSystem />
+      </section>
+
+      <section className="mx-auto max-w-6xl px-4 pb-24">
+        <SectionHeading eyebrow="Learning in Action" title="A look inside our classrooms" />
+        <PhotoStrip
+          photos={[
+            { ...centerPhotos.tutoring, caption: "Small-group tutoring" },
+            { ...centerPhotos.robotics, caption: "Building a robot together" },
+            { ...centerPhotos.electronics, caption: "Coding lights and circuits" },
+          ]}
+        />
       </section>
 
       <section className="bg-sky-50 py-24">

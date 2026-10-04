@@ -24,7 +24,7 @@ export default function SummerCampPage() {
       />
 
       <section className="mx-auto max-w-7xl px-4 py-24">
-        <SectionHeading eyebrow="8 Weekly Themes" title="Pick your adventure" text="Tap a week to see what's in store. Themes are a sample and may change each season." />
+        <SectionHeading eyebrow="Camp Themes" title="Your adventure" text="Tap a theme to see what's in store. Themes are a sample and may change each season." />
         <CampWeeks />
       </section>
 

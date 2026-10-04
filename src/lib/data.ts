@@ -372,7 +372,7 @@ export const faqs: { q: string; a: string; program?: ProgramKey }[] = [
   },
 ];
 
-export type GalleryCategory = "Tutoring" | "Summer Camp" | "Early Years";
+export type GalleryCategory = "Tutoring" | "STEM & Science" | "Early Years" | "Summer Camp";
 
 // Real photos (with `photo`) show first; emoji tiles are placeholders until more photos arrive.
 export const gallery: {
@@ -382,9 +382,16 @@ export const gallery: {
   emoji: string;
   gradient: string;
   photo?: string;
+  w?: number;
+  h?: number;
 }[] = [
-  { id: 101, title: "Circle time", category: "Early Years", emoji: "🐝", gradient: "from-honey-200 to-honey-300", photo: "/photos/circle-time.webp" },
-  { id: 102, title: "Our Learn • Grow • Succeed classroom", category: "Early Years", emoji: "🔤", gradient: "from-sky-200 to-blue-300", photo: "/photos/classroom-alphabet-wall.webp" },
+  { id: 103, title: "Coding with lights and circuits", category: "STEM & Science", emoji: "💡", gradient: "from-sky-200 to-blue-300", photo: "/photos/electronics-coding.jpg", w: 2000, h: 1502 },
+  { id: 101, title: "Circle time", category: "Early Years", emoji: "🐝", gradient: "from-honey-200 to-honey-300", photo: "/photos/circle-time.webp", w: 674, h: 1200 },
+  { id: 104, title: "Tutoring session", category: "Tutoring", emoji: "📚", gradient: "from-sky-200 to-blue-300", photo: "/photos/tutoring-session.jpg", w: 961, h: 1280 },
+  { id: 105, title: "Building a robot together", category: "STEM & Science", emoji: "🤖", gradient: "from-indigo-200 to-violet-300", photo: "/photos/robotics-group.jpg", w: 1080, h: 1129 },
+  { id: 106, title: "Ms Bee Science Fair", category: "STEM & Science", emoji: "🔬", gradient: "from-emerald-200 to-teal-300", photo: "/photos/science-fair.png", w: 576, h: 1024 },
+  { id: 102, title: "Our Learn • Grow • Succeed classroom", category: "Early Years", emoji: "🔤", gradient: "from-sky-200 to-blue-300", photo: "/photos/classroom-alphabet-wall.webp", w: 674, h: 1200 },
+  { id: 107, title: "Candle and jar experiment", category: "STEM & Science", emoji: "🕯️", gradient: "from-orange-200 to-red-300", photo: "/photos/science-experiment.webp", w: 576, h: 1024 },
   { id: 1, title: "Reading circle", category: "Tutoring", emoji: "📚", gradient: "from-sky-200 to-blue-300" },
   { id: 2, title: "Art & craft day", category: "Summer Camp", emoji: "🎨", gradient: "from-orange-200 to-red-300" },
   { id: 3, title: "Jolly Phonics", category: "Early Years", emoji: "🔤", gradient: "from-pink-200 to-fuchsia-300" },
@@ -536,4 +543,9 @@ export const books: {
 export const centerPhotos = {
   classroom: { src: "/photos/classroom-alphabet-wall.webp", alt: "Ms Bee classroom with the Learn, Grow, Succeed wall, alphabet chart, and colourful play mats" },
   circleTime: { src: "/photos/circle-time.webp", alt: "A Ms Bee teacher leading circle time with children sitting on colourful mats" },
+  tutoring: { src: "/photos/tutoring-session.jpg", alt: "Ms Bee tutors helping a small group of students at a table" },
+  robotics: { src: "/photos/robotics-group.jpg", alt: "Students gathered around a table building and testing a small robot" },
+  electronics: { src: "/photos/electronics-coding.jpg", alt: "Two children watching LEDs light up on a breadboard circuit connected to a laptop" },
+  scienceFair: { src: "/photos/science-fair.png", alt: "Students presenting their projects at the Ms Bee Science Fair" },
+  experiment: { src: "/photos/science-experiment.webp", alt: "Children watching a candle-and-jar science experiment" },
 };

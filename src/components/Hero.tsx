@@ -3,7 +3,9 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
+import Image from "next/image";
 import BeeMascot from "./BeeMascot";
+import { centerPhotos } from "@/lib/data";
 
 const bubbles = [
   { label: "Tutoring", emoji: "📚", className: "top-6 left-0 bg-sky-100", delay: 0.6 },
@@ -113,10 +115,17 @@ export default function Hero() {
             animate={{ rotate: [0, 4, 0, -4, 0] }}
             transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
           />
-          <div className="clip-hex absolute inset-14 bg-honey-100/70" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <BeeMascot className="w-3/5 drop-shadow-xl" />
+          <div className="clip-hex absolute inset-10 overflow-hidden">
+            <Image
+              src={centerPhotos.electronics.src}
+              alt={centerPhotos.electronics.alt}
+              fill
+              priority
+              sizes="(min-width: 1024px) 400px, 80vw"
+              className="object-cover"
+            />
           </div>
+          <BeeMascot className="absolute -top-2 right-2 w-24 drop-shadow-xl sm:w-28" />
           {bubbles.map((b) => (
             <motion.div
               key={b.label}

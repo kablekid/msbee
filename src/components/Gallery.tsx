@@ -6,7 +6,10 @@ import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import { gallery, type GalleryCategory } from "@/lib/data";
 
-const filters: ("All" | GalleryCategory)[] = ["All", "Tutoring", "Early Years", "Summer Camp"];
+const filters: ("All" | GalleryCategory)[] = ["All", "Tutoring", "STEM & Science", "Early Years", "Summer Camp"];
+
+// Tall photos span two rows, wide photos span two columns.
+const tileSpan = (w?: number, h?: number) => (!w || !h ? "" : h / w > 1.3 ? "row-span-2" : w / h > 1.2 ? "col-span-2" : "");
 
 export default function Gallery({ limit }: { limit?: number }) {
   const [filter, setFilter] = useState<(typeof filters)[number]>("All");
@@ -67,7 +70,7 @@ export default function Gallery({ limit }: { limit?: number }) {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.3 }}
-              className={item.photo ? "row-span-2" : ""}
+              className={tileSpan(item.w, item.h)}
             >
               <button
                 onClick={() => setActive(i)}
@@ -80,7 +83,7 @@ export default function Gallery({ limit }: { limit?: number }) {
                     alt={item.title}
                     fill
                     sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
-                    className="object-cover transition duration-700 group-hover:scale-110"
+                    className={`object-cover transition duration-700 group-hover:scale-110 ${tileSpan(item.w, item.h) === "col-span-2" ? "object-[center_25%]" : ""}`}
                   />
                 ) : (
                   <span className="text-6xl transition duration-500 group-hover:scale-125 group-hover:rotate-6 sm:text-7xl">{item.emoji}</span>
@@ -123,12 +126,17 @@ export default function Gallery({ limit }: { limit?: number }) {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-2xl"
+              className="w-full max-w-4xl"
             >
               {current.photo ? (
-                <div className="relative mx-auto aspect-[674/1200] h-[70vh] max-w-full overflow-hidden rounded-3xl shadow-2xl">
-                  <Image src={current.photo} alt={current.title} fill sizes="(min-width: 640px) 400px, 90vw" className="object-cover" />
-                </div>
+                <Image
+                  src={current.photo}
+                  alt={current.title}
+                  width={current.w ?? 800}
+                  height={current.h ?? 800}
+                  sizes="(min-width: 768px) 70vw, 95vw"
+                  className="mx-auto h-auto max-h-[72vh] w-auto max-w-full rounded-3xl shadow-2xl"
+                />
               ) : (
                 <div className={`flex aspect-[4/3] items-center justify-center rounded-3xl bg-gradient-to-br ${current.gradient} shadow-2xl`}>
                   <span className="text-[8rem] sm:text-[11rem]">{current.emoji}</span>
