@@ -3,6 +3,13 @@ import {
   BookOpen,
   Brain,
   Calculator,
+  ClipboardCheck,
+  FlaskConical,
+  Globe,
+  Leaf,
+  Library,
+  MessagesSquare,
+  SpellCheck,
   Crown,
   Gem,
   GraduationCap,
@@ -100,7 +107,7 @@ export const programs: {
     key: "camp",
     title: "Summer Camp",
     href: "/summer-camp",
-    ages: "Summer break",
+    ages: "July – August",
     description:
       "Themed weekly activities — art and craft, storytelling, music, public speaking, and problem-solving — so learning never takes a holiday.",
     icon: Sun,
@@ -138,7 +145,39 @@ export const whyUs: { title: string; text: string; icon: LucideIcon }[] = [
     text: "Experienced teachers who integrate creativity with academics and love what they do.",
     icon: Heart,
   },
+  {
+    title: "Trusted Curriculum",
+    text: "Lessons and books based on Cambridge, Pearson, and the Ethiopian curriculum.",
+    icon: Library,
+  },
+  {
+    title: "Organised & Connected",
+    text: "A sophisticated school management system keeps student records, attendance, and progress well organised.",
+    icon: ClipboardCheck,
+  },
 ];
+
+// Curriculum sources for our learning materials.
+export const curricula: { name: string; text: string; icon: LucideIcon }[] = [
+  { name: "Cambridge", text: "Internationally recognised Cambridge-based books and resources.", icon: Globe },
+  { name: "Pearson", text: "Structured Pearson-based materials for steady, measurable progress.", icon: BookOpen },
+  { name: "Ethiopian Curriculum", text: "Aligned with the national curriculum so tutoring supports schoolwork.", icon: Library },
+];
+
+// English language skills taught with curriculum-based books.
+export const englishSkills: { name: string; icon: LucideIcon; text: string }[] = [
+  { name: "Grammar", icon: SpellCheck, text: "Clear rules and plenty of practice for correct, confident English." },
+  { name: "Reading", icon: BookOpen, text: "Fluency, comprehension, and a real love of books." },
+  { name: "Phonics", icon: Sparkles, text: "Jolly Phonics-based sounds and blending for strong early readers." },
+  { name: "Spoken English", icon: MessagesSquare, text: "Speaking and listening practice that builds fluency and confidence." },
+  { name: "Writing", icon: PenTool, text: "Handwriting, sentences, and creative and structured writing." },
+];
+
+export const managementSystem = {
+  title: "Powered by a school management system",
+  text: "We use a sophisticated school management system to keep student records, attendance, schedules, and progress organised, so every child's learning journey is tracked and nothing falls through the cracks.",
+  points: ["Student records", "Attendance tracking", "Progress monitoring", "Organised scheduling"],
+};
 
 export const coreValues: { title: string; text: string; icon: LucideIcon }[] = [
   { title: "Excellence", text: "Delivering high-standard educational services.", icon: Award },
@@ -167,7 +206,7 @@ export const teachingApproach: { title: string; text: string; icon: LucideIcon }
 
 export const futureGoals = [
   "Expand services to include digital learning programs",
-  "Partner with international curricula and schools",
+  "Deepen partnerships with international curricula and schools",
   "Open additional branches across the city",
   "Grow the Ms Bee Activity Books collection with new titles and levels",
 ];
@@ -263,11 +302,13 @@ export const campWeeks: { week: number; theme: string; icon: LucideIcon; text: s
   { week: 3, theme: "Storytelling & Poetry", icon: BookOpen, text: "Reading adventures, writing our own stories, and reciting poems." },
   { week: 4, theme: "Little Thinkers", icon: Brain, text: "Puzzles, problem-solving challenges, and critical thinking games." },
   { week: 5, theme: "Music & Movement", icon: Music, text: "Songs, rhythm, dance, and interactive musical learning." },
-  { week: 6, theme: "Speak Up, Shine Bright", icon: Mic, text: "Public speaking, confidence building, and a showcase finale." },
+  { week: 6, theme: "Little Scientists", icon: FlaskConical, text: "Simple experiments, curious questions, and discovering how things work." },
+  { week: 7, theme: "Nature Explorers", icon: Leaf, text: "Animals, plants, and the world around us, inspired by our Nature activity book." },
+  { week: 8, theme: "Speak Up, Shine Bright", icon: Mic, text: "Spoken English, public speaking, and a showcase finale for families." },
 ];
 
 export const campActivities = [
-  "Themed weekly activities",
+  "A new theme every week, July – August",
   "Art and craft sessions",
   "Storytelling and poetry",
   "Music and interactive learning",
@@ -296,6 +337,16 @@ export const faqs: { q: string; a: string; program?: ProgramKey }[] = [
     program: "tutoring",
   },
   {
+    q: "Which curriculum and books do you use?",
+    a: "We use Cambridge, Pearson, and Ethiopian curriculum-based books, covering English grammar, reading, phonics, spoken English, and writing, alongside our own Ms Bee Activity Books.",
+    program: "tutoring",
+  },
+  {
+    q: "How do you keep track of my child's progress?",
+    a: "We use a sophisticated school management system to keep student records, attendance, and progress organised, together with continuous assessment and feedback to parents.",
+    program: "tutoring",
+  },
+  {
     q: "Do you offer online classes?",
     a: "Yes — online classes run 5 times a week for 10,000 ETB per month.",
     program: "tutoring",
@@ -312,7 +363,7 @@ export const faqs: { q: string; a: string; program?: ProgramKey }[] = [
   },
   {
     q: "When is summer camp and how much does it cost?",
-    a: "Summer camp runs during the school summer break with a new theme each week. Dates and fees are announced each season — call us to reserve a place.",
+    a: "Summer camp runs every year in July and August only, with a new theme each week. Fees are announced each season, so call us to reserve a place.",
     program: "camp",
   },
   {

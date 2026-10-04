@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description:
-    "Ms Bee Educational Support and Tutorial Center in Torhailoch, Addis Ababa: focus-group and one-to-one tutoring, VIP intensive and online classes, early years readiness, and summer camp. Learn • Grow • Succeed.",
+    "Ms Bee Educational Support and Tutorial Center in Torhailoch, Addis Ababa: focus-group and one-to-one tutoring with Cambridge, Pearson, and Ethiopian curriculum-based books, VIP intensive and online classes, early years readiness, and a July–August summer camp. Learn • Grow • Succeed.",
 };
 
 export default function RootLayout({

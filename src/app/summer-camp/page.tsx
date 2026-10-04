@@ -17,14 +17,14 @@ export default function SummerCampPage() {
   return (
     <>
       <PageHero
-        eyebrow="Seasonal Program"
+        eyebrow="July – August Only"
         title="Summer Camp at Ms Bee"
-        text="A new theme every week of the summer break — creativity, confidence, and learning that feels like play."
+        text="Every July and August, a new theme each week: creativity, confidence, and learning that feels like play."
         gradient="from-orange-100 via-honey-50 to-[#fffdf7]"
       />
 
       <section className="mx-auto max-w-7xl px-4 py-24">
-        <SectionHeading eyebrow="Weekly Themes" title="Pick your adventure" text="Tap a week to see what's in store. Themes are a sample and may change each season." />
+        <SectionHeading eyebrow="8 Weekly Themes" title="Pick your adventure" text="Tap a week to see what's in store. Themes are a sample and may change each season." />
         <CampWeeks />
       </section>
 
@@ -42,10 +42,10 @@ export default function SummerCampPage() {
           </AnimatedSection>
           <AnimatedSection direction="right" className="rounded-[2rem] bg-white p-8 shadow-xl ring-1 ring-honey-100 sm:p-10">
             <p className="text-sm font-bold tracking-wide text-honey-700 uppercase">Dates & Fees</p>
-            <h3 className="mt-2 text-3xl font-semibold">Announced each season</h3>
+            <h3 className="mt-2 text-3xl font-semibold">Every July & August</h3>
             <p className="mt-3 text-lg text-hive-700">
-              Summer camp runs during the school summer break. We also offer holiday learning programs during other school
-              breaks. Call us to reserve a place or join the waiting list.
+              Summer camp runs in July and August only. Fees are announced each season, and places are limited, so call us
+              to reserve a place or join the waiting list.
             </p>
             <a href={`tel:${site.phones[0].tel}`} className="mt-6 inline-flex items-center gap-2 rounded-full bg-honey-400 px-6 py-3 font-bold text-hive-900 shadow-md hover:bg-honey-300">
               <Phone className="h-5 w-5" /> {site.phones[0].display}

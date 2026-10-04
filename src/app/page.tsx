@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import BooksTeaser from "@/components/BooksTeaser";
+import CurriculumSection from "@/components/CurriculumSection";
 import CTABanner from "@/components/CTABanner";
 import FAQAccordion from "@/components/FAQAccordion";
 import FeesAtAGlance from "@/components/FeesAtAGlance";
@@ -30,10 +31,14 @@ export default function Home() {
         <ProgramCards />
       </section>
 
+      <section className="mx-auto max-w-7xl px-4 pb-24">
+        <CurriculumSection />
+      </section>
+
       <section className="bg-honey-50 py-24">
         <div className="mx-auto max-w-7xl px-4">
           <SectionHeading eyebrow="Why Ms Bee" title="A place families trust" />
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {whyUs.map((item, i) => {
               const Icon = item.icon;
               return (

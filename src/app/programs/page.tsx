@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Check, Clock, Star } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTABanner from "@/components/CTABanner";
+import CurriculumSection from "@/components/CurriculumSection";
 import FAQAccordion from "@/components/FAQAccordion";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
@@ -169,6 +170,10 @@ export default function ProgramsPage() {
           </div>
         </AnimatedSection>
       </div>
+
+      <section className="mx-auto max-w-7xl px-4 pb-24">
+        <CurriculumSection showSystem />
+      </section>
 
       <section className="bg-sky-50 py-24">
         <div className="mx-auto max-w-7xl px-4">

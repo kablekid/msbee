@@ -62,7 +62,8 @@ export default function Hero() {
             className="mt-6 max-w-xl text-lg text-hive-700 sm:text-xl"
           >
             Ms Bee Educational Support and Tutorial Center in Torhailoch, Addis Ababa offers tutoring from kindergarten to
-            high school, early years readiness, online classes, and a themed summer camp. Quality learning, better future.
+            high school with Cambridge, Pearson, and Ethiopian curriculum-based books, plus early years readiness, online
+            classes, and a July–August summer camp.
           </motion.p>
 
           <motion.div

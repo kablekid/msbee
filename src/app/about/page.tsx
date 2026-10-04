@@ -97,7 +97,7 @@ export default function AboutPage() {
 
       <section className="mx-auto max-w-7xl px-4 py-24">
         <SectionHeading eyebrow="Why Ms Bee" title="Why families choose us" />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {whyUs.map((w, i) => {
             const Icon = w.icon;
             return (
