@@ -2,10 +2,9 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
-import Image from "next/image";
+import { ArrowRight, ClipboardCheck, Sparkles } from "lucide-react";
+import Flower from "./Flower";
 import MsBeeMascot from "./MsBeeMascot";
-import { centerPhotos } from "@/lib/data";
 
 const bubbles = [
   { label: "Tutoring", emoji: "📚", className: "top-6 left-0 bg-sky-100", delay: 0.6 },
@@ -90,6 +89,22 @@ export default function Hero() {
             </Link>
           </motion.div>
 
+          <motion.div
+            initial={{ opacity: 0, scale: 0.6, rotate: -8 }}
+            animate={{ opacity: 1, scale: 1, rotate: -2 }}
+            transition={{ delay: 0.7, type: "spring", stiffness: 220, damping: 12 }}
+            whileHover={{ rotate: 0, scale: 1.04 }}
+            className="relative mt-8 inline-flex max-w-full items-center gap-3 overflow-hidden rounded-2xl bg-hive-900 py-3 pr-5 pl-3 text-white shadow-xl shadow-hive-900/25"
+          >
+            <span className="clip-hex flex h-11 w-11 shrink-0 items-center justify-center bg-honey-400 text-hive-900">
+              <ClipboardCheck className="h-6 w-6" />
+            </span>
+            <span className="font-display text-base leading-snug font-medium sm:text-lg">
+              We use a <span className="text-honey-300">sophisticated school management system</span>
+            </span>
+            <span className="splash-shine pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 bg-gradient-to-r from-transparent via-white/25 to-transparent" />
+          </motion.div>
+
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }} className="mt-8 flex items-center gap-3">
             <div className="flex -space-x-3">
               {["bg-sky-300", "bg-pink-300", "bg-honey-300", "bg-emerald-300"].map((c, i) => (
@@ -115,17 +130,20 @@ export default function Hero() {
             animate={{ rotate: [0, 4, 0, -4, 0] }}
             transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
           />
-          <div className="clip-hex absolute inset-10 overflow-hidden">
-            <Image
-              src={centerPhotos.electronics.src}
-              alt={centerPhotos.electronics.alt}
-              fill
-              priority
-              sizes="(min-width: 1024px) 400px, 80vw"
-              className="object-cover"
-            />
+          {/* Ms Bee's meadow inside the hexagon */}
+          <div className="clip-hex absolute inset-10 overflow-hidden bg-gradient-to-b from-sky-200 via-sky-50 to-honey-50">
+            <div className="hex-pattern absolute inset-0 opacity-70" />
+            <div className="absolute top-[12%] left-[16%] h-10 w-20 rounded-full bg-white/80 blur-[2px]" />
+            <div className="absolute top-[20%] right-[18%] h-8 w-16 rounded-full bg-white/70 blur-[2px]" />
+            <div className="absolute -bottom-10 left-1/2 h-28 w-[120%] -translate-x-1/2 rounded-[50%] bg-gradient-to-b from-green-300 to-green-500" />
+            <Flower kind="pink" className="absolute bottom-6 left-[24%] h-16 sm:h-20" delay={0.2} />
+            <Flower kind="sunflower" className="absolute bottom-3 left-[36%] h-20 sm:h-24" />
+            <Flower kind="daisy" className="absolute bottom-7 left-[52%] h-14 sm:h-16" delay={0.5} />
+            <Flower kind="sky" className="absolute bottom-4 left-[63%] h-16 sm:h-20" delay={0.3} />
           </div>
-          <MsBeeMascot className="absolute -top-14 -right-1 z-10 w-28 sm:-top-28 sm:-right-20 sm:w-44" />
+          <MsBeeMascot flip className="absolute top-[14%] left-[20%] z-10 w-[38%]" />
+          <Flower kind="sunflower" className="absolute right-6 -bottom-2 z-10 h-24 sm:h-28" delay={0.4} />
+          <Flower kind="pink" className="absolute right-20 bottom-0 z-10 h-16 sm:h-20" delay={0.1} />
           {bubbles.map((b) => (
             <motion.div
               key={b.label}

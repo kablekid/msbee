@@ -85,3 +85,25 @@ h4 {
     overflow-x: auto;
   }
 }
+
+/* Light sweep across the hero splash badge */
+@keyframes splash-shine {
+  0%,
+  60% {
+    transform: translateX(0) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(450%) skewX(-20deg);
+  }
+}
+
+.splash-shine {
+  animation: splash-shine 4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .splash-shine {
+    animation: none !important;
+    display: none;
+  }
+}
