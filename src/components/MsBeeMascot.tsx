@@ -16,13 +16,15 @@ export default function MsBeeMascot({
   flip?: boolean;
 }) {
   const reduce = useReducedMotion();
+  // Gentle flutter: a soft, unhurried flap with a slight squash on the
+  // downstroke so the wings feel light. The back pair trails a little.
   const flap = (from: number, to: number, delay = 0) =>
     reduce
       ? undefined
       : {
-          animate: { rotate: [from, to, from] },
+          animate: { rotate: [from, to, from], scaleY: [1, 0.9, 1] },
           transition: {
-            duration: 0.18,
+            duration: 0.7,
             repeat: Infinity,
             ease: "easeInOut" as const,
             delay,
@@ -63,7 +65,7 @@ export default function MsBeeMascot({
             {/* back pair (slightly darker, offset) */}
             <motion.g
               style={{ transformOrigin: "200px 100px" }}
-              {...flap(-4, 26, 0.04)}
+              {...flap(-2, 22, 0.12)}
             >
               <path
                 d="M200 96 C150 6 52 -14 22 22 C-2 52 52 98 200 96 Z"
@@ -86,7 +88,7 @@ export default function MsBeeMascot({
             {/* front pair */}
             <motion.g
               style={{ transformOrigin: "200px 100px" }}
-              {...flap(6, -22)}
+              {...flap(4, -18)}
             >
               {/* upper wing */}
               <path
