@@ -5,7 +5,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import CTABanner from "@/components/CTABanner";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
-import { coreValues, futureGoals, mission, site, teachingApproach, vision, whyUs } from "@/lib/data";
+import { centerPhotos, coreValues, futureGoals, mission, site, teachingApproach, vision, whyUs } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -33,8 +33,18 @@ export default function AboutPage() {
             </p>
           </div>
         </AnimatedSection>
-        <AnimatedSection direction="right" className="mx-auto">
-          <Image src="/logo.png" alt={`${site.name} logo`} width={360} height={360} className="rounded-full shadow-2xl ring-8 ring-honey-200" />
+        <AnimatedSection direction="right" className="relative mx-auto w-full max-w-xs">
+          <div className="absolute -inset-4 -z-10 rotate-3 rounded-[2.5rem] bg-honey-300" />
+          <div className="relative aspect-[674/1200] overflow-hidden rounded-[2rem] shadow-2xl">
+            <Image src={centerPhotos.classroom.src} alt={centerPhotos.classroom.alt} fill sizes="320px" className="object-cover" />
+          </div>
+          <Image
+            src="/logo.png"
+            alt={`${site.name} logo`}
+            width={112}
+            height={112}
+            className="absolute -bottom-6 -left-6 rounded-full bg-white shadow-xl ring-4 ring-honey-300"
+          />
         </AnimatedSection>
       </section>
 

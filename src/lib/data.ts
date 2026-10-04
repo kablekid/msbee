@@ -374,7 +374,17 @@ export const faqs: { q: string; a: string; program?: ProgramKey }[] = [
 
 export type GalleryCategory = "Tutoring" | "Summer Camp" | "Early Years";
 
-export const gallery: { id: number; title: string; category: GalleryCategory; emoji: string; gradient: string }[] = [
+// Real photos (with `photo`) show first; emoji tiles are placeholders until more photos arrive.
+export const gallery: {
+  id: number;
+  title: string;
+  category: GalleryCategory;
+  emoji: string;
+  gradient: string;
+  photo?: string;
+}[] = [
+  { id: 101, title: "Circle time", category: "Early Years", emoji: "🐝", gradient: "from-honey-200 to-honey-300", photo: "/photos/circle-time.webp" },
+  { id: 102, title: "Our Learn • Grow • Succeed classroom", category: "Early Years", emoji: "🔤", gradient: "from-sky-200 to-blue-300", photo: "/photos/classroom-alphabet-wall.webp" },
   { id: 1, title: "Reading circle", category: "Tutoring", emoji: "📚", gradient: "from-sky-200 to-blue-300" },
   { id: 2, title: "Art & craft day", category: "Summer Camp", emoji: "🎨", gradient: "from-orange-200 to-red-300" },
   { id: 3, title: "Jolly Phonics", category: "Early Years", emoji: "🔤", gradient: "from-pink-200 to-fuchsia-300" },
@@ -522,3 +532,8 @@ export const books: {
     year: 2023,
   },
 ];
+
+export const centerPhotos = {
+  classroom: { src: "/photos/classroom-alphabet-wall.webp", alt: "Ms Bee classroom with the Learn, Grow, Succeed wall, alphabet chart, and colourful play mats" },
+  circleTime: { src: "/photos/circle-time.webp", alt: "A Ms Bee teacher leading circle time with children sitting on colourful mats" },
+};

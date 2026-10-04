@@ -29,7 +29,7 @@ npm run lint
 ## Editing content
 
 All text — contact info, programs and fees (ETB), camp themes, values, FAQs, gallery — lives in
-[`src/lib/data.ts`](src/lib/data.ts). Gallery tiles are emoji placeholders; swap them for real photos in `public/images/`.
+[`src/lib/data.ts`](src/lib/data.ts). Real photos live in `public/photos/`; add a `photo` path to a `gallery` entry to show it (photo tiles span two rows). Remaining emoji tiles are placeholders.
 
 ## Contact form
 

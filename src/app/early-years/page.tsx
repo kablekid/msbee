@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Baby, Check, Phone } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -6,7 +7,7 @@ import CTABanner from "@/components/CTABanner";
 import FAQAccordion from "@/components/FAQAccordion";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
-import { earlyYears, earlyYearsFocus, formatEtb, site } from "@/lib/data";
+import { centerPhotos, earlyYears, earlyYearsFocus, formatEtb, site } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Early Years & Daycare",
@@ -45,6 +46,26 @@ export default function EarlyYearsPage() {
             </div>
             <p className="rounded-3xl bg-green-50 p-6 text-lg text-hive-800">{earlyYears.text}</p>
           </div>
+        </AnimatedSection>
+      </section>
+
+      <section className="mx-auto grid max-w-6xl items-center gap-10 px-4 pb-24 md:grid-cols-[1fr_1fr_1.1fr]">
+        {[centerPhotos.circleTime, centerPhotos.classroom].map((ph, i) => (
+          <AnimatedSection
+            key={ph.src}
+            delay={i * 0.12}
+            className={`relative mx-auto aspect-[674/1200] w-full max-w-[16rem] overflow-hidden rounded-[2rem] shadow-xl ring-4 ring-white transition duration-500 hover:rotate-0 hover:scale-105 ${i === 0 ? "-rotate-2" : "rotate-2 md:mt-16"}`}
+          >
+            <Image src={ph.src} alt={ph.alt} fill sizes="256px" className="object-cover" />
+          </AnimatedSection>
+        ))}
+        <AnimatedSection direction="right" className="text-center md:text-left">
+          <span className="inline-block rounded-full bg-green-100 px-4 py-1 text-sm font-bold tracking-wide text-green-700 uppercase">Inside Our Center</span>
+          <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">A bright, joyful space to learn</h2>
+          <p className="mt-4 text-lg text-hive-700">
+            Soft, colourful play mats, an alphabet wall, and lots of natural light. Circle time, songs, and hands-on
+            activities help our youngest learners feel safe, confident, and excited to learn.
+          </p>
         </AnimatedSection>
       </section>
 

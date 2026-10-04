@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
@@ -56,7 +57,7 @@ export default function Gallery({ limit }: { limit?: number }) {
         </div>
       )}
 
-      <motion.ul layout className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
+      <motion.ul layout className="grid grid-flow-dense grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
         <AnimatePresence mode="popLayout">
           {items.map((item, i) => (
             <motion.li
@@ -66,14 +67,24 @@ export default function Gallery({ limit }: { limit?: number }) {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.3 }}
-              className={i % 5 === 0 && !limit ? "row-span-2" : ""}
+              className={item.photo ? "row-span-2" : ""}
             >
               <button
                 onClick={() => setActive(i)}
                 className={`group relative flex h-full min-h-40 w-full items-center justify-center overflow-hidden rounded-3xl bg-gradient-to-br ${item.gradient} sm:min-h-52`}
                 aria-label={`Open ${item.title}`}
               >
-                <span className="text-6xl transition duration-500 group-hover:scale-125 group-hover:rotate-6 sm:text-7xl">{item.emoji}</span>
+                {item.photo ? (
+                  <Image
+                    src={item.photo}
+                    alt={item.title}
+                    fill
+                    sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
+                    className="object-cover transition duration-700 group-hover:scale-110"
+                  />
+                ) : (
+                  <span className="text-6xl transition duration-500 group-hover:scale-125 group-hover:rotate-6 sm:text-7xl">{item.emoji}</span>
+                )}
                 <span className="absolute inset-x-0 bottom-0 translate-y-full bg-gradient-to-t from-hive-900/80 to-transparent p-4 text-left text-white transition duration-300 group-hover:translate-y-0">
                   <span className="block font-display text-lg font-medium">{item.title}</span>
                   <span className="text-sm text-honey-200">{item.category}</span>
@@ -114,9 +125,15 @@ export default function Gallery({ limit }: { limit?: number }) {
               onClick={(e) => e.stopPropagation()}
               className="w-full max-w-2xl"
             >
-              <div className={`flex aspect-[4/3] items-center justify-center rounded-3xl bg-gradient-to-br ${current.gradient} shadow-2xl`}>
-                <span className="text-[8rem] sm:text-[11rem]">{current.emoji}</span>
-              </div>
+              {current.photo ? (
+                <div className="relative mx-auto aspect-[674/1200] h-[70vh] max-w-full overflow-hidden rounded-3xl shadow-2xl">
+                  <Image src={current.photo} alt={current.title} fill sizes="(min-width: 640px) 400px, 90vw" className="object-cover" />
+                </div>
+              ) : (
+                <div className={`flex aspect-[4/3] items-center justify-center rounded-3xl bg-gradient-to-br ${current.gradient} shadow-2xl`}>
+                  <span className="text-[8rem] sm:text-[11rem]">{current.emoji}</span>
+                </div>
+              )}
               <div className="mt-4 text-center text-white">
                 <p className="font-display text-2xl">{current.title}</p>
                 <p className="text-honey-200">
