@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import Image from "next/image";
-import BeeMascot from "./BeeMascot";
+import MsBeeMascot from "./MsBeeMascot";
 import { centerPhotos } from "@/lib/data";
 
 const bubbles = [
@@ -125,7 +125,7 @@ export default function Hero() {
               className="object-cover"
             />
           </div>
-          <BeeMascot className="absolute -top-2 right-2 w-24 drop-shadow-xl sm:w-28" />
+          <MsBeeMascot className="absolute -top-14 -right-1 z-10 w-28 sm:-top-28 sm:-right-20 sm:w-44" />
           {bubbles.map((b) => (
             <motion.div
               key={b.label}
