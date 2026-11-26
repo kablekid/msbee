@@ -11,7 +11,7 @@ const filters: ("All" | GalleryCategory)[] = ["All", "Tutoring", "STEM & Science
 // Tall photos span two rows, wide photos span two columns.
 const tileSpan = (w?: number, h?: number) => (!w || !h ? "" : h / w > 1.3 ? "row-span-2" : w / h > 1.2 ? "col-span-2" : "");
 
-export default function Gallery({ limit }: { limit?: number }) {
+export default function Gallery({ limit, mobileLimit }: { limit?: number; mobileLimit?: number }) {
   const [filter, setFilter] = useState<(typeof filters)[number]>("All");
   const [active, setActive] = useState<number | null>(null);
 
@@ -70,7 +70,7 @@ export default function Gallery({ limit }: { limit?: number }) {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.3 }}
-              className={tileSpan(item.w, item.h)}
+              className={`${tileSpan(item.w, item.h)} ${mobileLimit !== undefined && i >= mobileLimit ? "hidden sm:block" : ""}`}
             >
               <button
                 onClick={() => setActive(i)}
