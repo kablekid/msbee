@@ -11,42 +11,42 @@ export default function CurriculumSection({ showSystem = false }: { showSystem?:
         title="Built on trusted curricula"
         text="Our students learn from Cambridge, Pearson, and Ethiopian curriculum-based books, so tutoring supports what they learn at school."
       />
-      <div className="grid gap-5 md:grid-cols-3">
+      <div className="grid grid-cols-3 gap-2 sm:gap-5">
         {curricula.map((c, i) => {
           const Icon = c.icon;
           return (
             <AnimatedSection
               key={c.name}
               delay={i * 0.1}
-              className="group relative overflow-hidden rounded-[2rem] bg-white p-7 text-center shadow-md ring-1 ring-honey-100 transition hover:-translate-y-2 hover:shadow-xl"
+              className="group relative overflow-hidden rounded-2xl bg-white p-3 text-center shadow-md sm:rounded-[2rem] sm:p-7 ring-1 ring-honey-100 transition hover:-translate-y-2 hover:shadow-xl"
             >
               <div className="absolute -top-10 -right-10 h-28 w-28 rounded-full bg-honey-100 transition-transform duration-500 group-hover:scale-150" />
-              <div className="clip-hex relative mx-auto flex h-16 w-16 items-center justify-center bg-hive-900 text-honey-300">
-                <Icon className="h-8 w-8" />
+              <div className="clip-hex relative mx-auto flex h-11 w-11 items-center justify-center bg-hive-900 text-honey-300 sm:h-16 sm:w-16">
+                <Icon className="h-6 w-6 sm:h-8 sm:w-8" />
               </div>
-              <h3 className="relative mt-4 text-2xl font-semibold">{c.name}</h3>
-              <p className="relative mt-2 text-hive-700">{c.text}</p>
+              <h3 className="relative mt-2 text-sm leading-tight font-semibold sm:mt-4 sm:text-2xl">{c.name}</h3>
+              <p className="relative mt-2 hidden text-hive-700 sm:block">{c.text}</p>
             </AnimatedSection>
           );
         })}
       </div>
 
-      <AnimatedSection className="mt-14 rounded-[2rem] bg-hive-900 p-6 text-white shadow-xl sm:p-10">
+      <AnimatedSection className="mt-8 rounded-[2rem] bg-hive-900 p-5 text-white sm:mt-14 shadow-xl sm:p-10">
         <h3 className="text-center text-2xl font-semibold text-honey-300 sm:text-3xl">English language skills</h3>
-        <p className="mt-2 text-center text-honey-50/80">Taught with curriculum-based books at every level</p>
-        <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
+        <p className="mt-2 hidden text-center text-honey-50/80 sm:block">Taught with curriculum-based books at every level</p>
+        <div className="mt-5 grid grid-cols-3 gap-2 sm:mt-8 sm:gap-4 lg:grid-cols-5">
           {englishSkills.map((sk, i) => {
             const Icon = sk.icon;
             return (
               <AnimatedSection
                 key={sk.name}
                 delay={i * 0.08}
-                className={`group rounded-3xl bg-white/5 p-5 text-center ring-1 ring-white/10 transition hover:-translate-y-1 hover:bg-white/10 ${i === 4 ? "col-span-2 sm:col-span-1" : ""}`}
+                className={`group rounded-2xl bg-white/5 p-3 text-center ring-1 ring-white/10 transition hover:-translate-y-1 hover:bg-white/10 sm:rounded-3xl sm:p-5`}
               >
                 <div>
-                  <Icon className="mx-auto h-9 w-9 text-honey-400 transition group-hover:scale-110" />
-                  <p className="mt-3 font-display text-lg font-medium">{sk.name}</p>
-                  <p className="mt-1 text-sm text-honey-50/75">{sk.text}</p>
+                  <Icon className="mx-auto h-7 w-7 text-honey-400 sm:h-9 sm:w-9 transition group-hover:scale-110" />
+                  <p className="mt-2 font-display text-sm leading-tight font-medium sm:mt-3 sm:text-lg">{sk.name}</p>
+                  <p className="mt-1 hidden text-sm text-honey-50/75 sm:block">{sk.text}</p>
                 </div>
               </AnimatedSection>
             );

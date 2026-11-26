@@ -7,12 +7,12 @@ import { books } from "@/lib/data";
 export default function BooksTeaser() {
   return (
     <div>
-      <AnimatedSection className="mx-auto mb-10 max-w-2xl text-center">
+      <AnimatedSection className="mx-auto mb-6 max-w-2xl text-center sm:mb-10">
         <span className="inline-block rounded-full bg-pink-100 px-4 py-1 text-sm font-bold tracking-wide text-pink-700 uppercase">
           Our Own Brand · {books.length} Titles
         </span>
-        <h2 className="mt-4 text-3xl font-semibold sm:text-4xl">Ms Bee Activity Books</h2>
-        <p className="mt-4 text-lg text-hive-700">
+        <h2 className="mt-3 text-[1.7rem] font-semibold sm:mt-4 sm:text-4xl">Ms Bee Activity Books</h2>
+        <p className="mt-4 hidden text-lg text-hive-700 sm:block">
           From First Step for ages 3–4 to phonics, handwriting, maths, and nature: levelled activity books created by Ms Bee
           to keep the learning going at home.
         </p>

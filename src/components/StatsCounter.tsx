@@ -30,16 +30,16 @@ function Counter({ value, prefix, suffix }: { value: number; prefix: string; suf
 
 export default function StatsCounter() {
   return (
-    <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+    <div className="grid grid-cols-4 gap-2 sm:gap-4">
       {stats.map((s) => (
         <div
           key={s.label}
-          className="rounded-3xl bg-white/80 p-6 text-center shadow-sm ring-1 ring-honey-200 backdrop-blur transition hover:-translate-y-1 hover:shadow-lg"
+          className="rounded-2xl bg-white/80 px-1 py-3 text-center sm:rounded-3xl sm:p-6 shadow-sm ring-1 ring-honey-200 backdrop-blur transition hover:-translate-y-1 hover:shadow-lg"
         >
-          <p className="font-display text-4xl font-semibold text-honey-600 sm:text-5xl">
+          <p className="font-display text-xl font-semibold text-honey-600 sm:text-5xl">
             <Counter value={s.value} prefix={s.prefix} suffix={s.suffix} />
           </p>
-          <p className="mt-2 font-semibold text-hive-700">{s.label}</p>
+          <p className="mt-1 text-[0.65rem] leading-tight font-semibold text-hive-700 sm:mt-2 sm:text-base">{s.label}</p>
         </div>
       ))}
     </div>
