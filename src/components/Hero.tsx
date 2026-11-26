@@ -85,7 +85,7 @@ export default function Hero() {
               className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-8 py-4 text-lg font-bold text-hive-900 shadow-md ring-1 ring-honey-200 transition hover:-translate-y-0.5 hover:ring-honey-400"
             >
               <Sparkles className="h-5 w-5 text-honey-500" />
-              Programs & Fees
+              Our Programs
             </Link>
           </motion.div>
 

@@ -5,7 +5,7 @@ import BooksTeaser from "@/components/BooksTeaser";
 import CurriculumSection from "@/components/CurriculumSection";
 import CTABanner from "@/components/CTABanner";
 import FAQAccordion from "@/components/FAQAccordion";
-import FeesAtAGlance from "@/components/FeesAtAGlance";
+import ProgramsAtAGlance from "@/components/ProgramsAtAGlance";
 import Gallery from "@/components/Gallery";
 import Hero from "@/components/Hero";
 import ProgramCards from "@/components/ProgramCards";
@@ -66,14 +66,14 @@ export default function Home() {
 
       <section className="mx-auto max-w-7xl px-4 py-24">
         <SectionHeading
-          eyebrow="Fees at a Glance"
+          eyebrow="Programs at a Glance"
           title="Five ways to learn with Ms Bee"
-          text="Monthly plans, paid in advance, with flexible times that fit your family's schedule."
+          text="Monthly plans with flexible times that fit your family's schedule. Call or WhatsApp us for current fees."
         />
-        <FeesAtAGlance />
+        <ProgramsAtAGlance />
         <AnimatedSection className="mt-10 text-center">
           <Link href="/programs" className="group inline-flex items-center gap-2 font-bold text-honey-700">
-            See the full price list <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
+            Explore all programs <ArrowRight className="h-5 w-5 transition group-hover:translate-x-1" />
           </Link>
         </AnimatedSection>
       </section>

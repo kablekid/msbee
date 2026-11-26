@@ -33,7 +33,7 @@ import {
 } from "lucide-react";
 
 // All site content lives here so it can be edited in one place.
-// Source: Ms Bee company profile and official price list.
+// Source: Ms Bee company profile.
 
 export const site = {
   name: "Ms Bee Educational Support",
@@ -58,7 +58,7 @@ export const site = {
 
 export const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/programs", label: "Programs & Fees" },
+  { href: "/programs", label: "Programs" },
   { href: "/early-years", label: "Early Years" },
   { href: "/summer-camp", label: "Summer Camp" },
   { href: "/books", label: "Books" },
@@ -66,7 +66,6 @@ export const navLinks = [
   { href: "/gallery", label: "Gallery" },
 ];
 
-export const formatEtb = (n: number) => `${n.toLocaleString("en-US")} ETB`;
 
 export type ProgramKey = "tutoring" | "early-years" | "camp";
 
@@ -220,7 +219,7 @@ export const subjects: { name: string; icon: LucideIcon; text: string }[] = [
   { name: "Study Skills", icon: Lightbulb, text: "Time management and learning how to learn." },
 ];
 
-// Official price list (monthly, paid in advance).
+// Programs (fees are given on request: call or WhatsApp).
 export const focusGroup = {
   title: "Focus Group — Monthly Plan",
   note: "Monthly advance payment",
@@ -230,8 +229,8 @@ export const focusGroup = {
       detail: "Ratio 1:15",
       icon: GraduationCap,
       options: [
-        { label: "3 times per week", price: 10000 },
-        { label: "5 times per week", price: 15000 },
+        { label: "3 times per week" },
+        { label: "5 times per week" },
       ],
     },
     {
@@ -239,8 +238,8 @@ export const focusGroup = {
       detail: "Small groups",
       icon: BookOpen,
       options: [
-        { label: "3 times per week", price: 10000 },
-        { label: "5 times per week", price: 15000 },
+        { label: "3 times per week" },
+        { label: "5 times per week" },
       ],
     },
   ],
@@ -252,8 +251,8 @@ export const oneToOne = {
   text: "For students who need individualized attention and targeted academic support.",
   icon: User,
   options: [
-    { label: "3 times per week", price: 12000 },
-    { label: "5 times per week", price: 20000 },
+    { label: "3 times per week" },
+    { label: "5 times per week" },
   ],
 };
 
@@ -262,27 +261,24 @@ export const vip = {
   text: "Quality learning, maximum results.",
   icon: Gem,
   badge: Crown,
-  hourly: 2000,
   days: "5 days per week",
-  monthly: 40000,
   includes: ["Free books", "Free learning materials", "Flexible scheduling"],
 };
 
 export const earlyYears = {
   title: "Early Years Readiness Program",
-  subtitle: "Weekend program — monthly fee",
+  subtitle: "Weekend program",
   text: "Designed to help young learners build strong foundations in early literacy, numeracy, communication, confidence, and school readiness.",
   options: [
-    { label: "Group", price: 9500, unit: "/ month" },
-    { label: "One-to-One", price: 13000, unit: "/ month" },
-    { label: "Siblings Package", price: 11500, unit: "per child / month" },
+    { label: "Group" },
+    { label: "One-to-One" },
+    { label: "Siblings Package" },
   ],
 };
 
 export const online = {
   title: "Online Class with Ms Bee",
   icon: Laptop,
-  price: 10000,
   schedule: "5 times a week",
   text: "Live lessons with a Ms Bee teacher from the comfort of home.",
 };
@@ -323,7 +319,7 @@ export const faqs: { q: string; a: string; program?: ProgramKey }[] = [
   },
   {
     q: "How is payment made?",
-    a: "Fees are paid monthly, in advance. See our Programs & Fees page for the full price list.",
+    a: "Fees are paid monthly, in advance. Call or WhatsApp us and we'll share the current fees for the program that suits your child.",
     program: "tutoring",
   },
   {
@@ -348,12 +344,12 @@ export const faqs: { q: string; a: string; program?: ProgramKey }[] = [
   },
   {
     q: "Do you offer online classes?",
-    a: "Yes — online classes run 5 times a week for 10,000 ETB per month.",
+    a: "Yes — live online classes with a Ms Bee teacher run 5 times a week.",
     program: "tutoring",
   },
   {
     q: "Is there a discount for siblings?",
-    a: "Our Early Years Readiness Program has a Siblings Package at 11,500 ETB per child per month.",
+    a: "Yes — our Early Years Readiness Program has a Siblings Package. Contact us for details.",
     program: "early-years",
   },
   {

@@ -15,9 +15,9 @@ npm run lint
 
 | Route | Contents |
 | --- | --- |
-| `/` | Animated hero, program cards, fees at a glance, teaching approach, gallery preview, FAQ |
-| `/programs` | Full price list: focus group, one-to-one, VIP intensive, online class |
-| `/early-years` | Early Years Readiness Program fees, learning areas, daycare inquiry |
+| `/` | Animated hero, program cards, programs at a glance, teaching approach, gallery preview, FAQ |
+| `/programs` | Programs: focus group, one-to-one, VIP intensive, online class |
+| `/early-years` | Early Years Readiness Program options, learning areas, daycare inquiry |
 | `/summer-camp` | Interactive weekly theme picker and camp activities |
 | `/books` | Ms Bee Activity Books: infinite-scroll cover marquee, filterable 3D-tilt bookshelf, details view, order on WhatsApp |
 | `/about` | Introduction, vision, mission, core values, teaching approach, future goals |
@@ -28,7 +28,7 @@ npm run lint
 
 ## Editing content
 
-All text — contact info, programs and fees (ETB), camp themes, values, FAQs, gallery — lives in
+All text — contact info, programs, camp themes, values, FAQs, gallery — lives in
 [`src/lib/data.ts`](src/lib/data.ts). Real photos live in `public/photos/`; add a `photo` path to a `gallery` entry to show it (photo tiles span two rows). Remaining emoji tiles are placeholders.
 
 ## Contact form
