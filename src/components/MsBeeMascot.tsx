@@ -13,15 +13,15 @@ import { useId } from "react";
 //  • the FAR pair attaches to her other shoulder and points away from us, so it is
 //    foreshortened and mostly hidden behind her head and book — only the tip peeks
 //    over her far shoulder at the top of each upstroke.
-// Both pairs beat together (mirror images), and fore- and hind-wings on each side
-// move as one, as a bee's are hooked together.
+// Both pairs beat together as mirror images, using the same anchored "bend" so the
+// base of each wing stays on her back while the flex builds toward the tip. Fore-
+// and hind-wings on each side move as one, as a bee's are hooked together.
 //
 // Wing coordinates: each pair is drawn with its root at (200, 100) in a 200×200
 // box, extending left; a positive angle lifts the wing.
 
 // Upstroke a touch quicker than the downstroke, for a soft, buoyant flutter.
 const BEAT = { duration: 0.7, repeat: Infinity, ease: "easeInOut" as const, times: [0, 0.45, 1] };
-const FAR_STROKE = [-44, 36, -44];
 
 // The NEAR pair is fully visible where it meets her body, so instead of swinging
 // the whole wing (which makes the base slide and look detached), each frame bends
@@ -78,31 +78,22 @@ const nearFrames = (segs: Seg[]) => [bentPath(segs, NEAR_DOWN), bentPath(segs, N
 const NEAR_REST = { fore: bentPath(NEAR_FOREWING, 4), hind: bentPath(NEAR_HINDWING, 4), veins: bentPath(NEAR_VEINS, 4) };
 const NEAR_ANIM = { fore: nearFrames(NEAR_FOREWING), hind: nearFrames(NEAR_HINDWING), veins: nearFrames(NEAR_VEINS) };
 
-// The FAR pair swings rigidly from its root, which is hidden behind her body.
-function WingPair({ fill, stroke }: { fill: string; stroke: string }) {
-  return (
-    <>
-      {/* forewing */}
-      <path
-        d="M200 96 C152 10 56 -10 26 26 C2 56 56 100 200 96 Z"
-        fill={fill}
-        stroke={stroke}
-        strokeOpacity="0.75"
-        strokeWidth="3"
-        strokeLinejoin="round"
-      />
-      {/* hindwing */}
-      <path
-        d="M200 104 C150 112 72 134 64 166 C58 192 130 184 200 104 Z"
-        fill={fill}
-        stroke={stroke}
-        strokeOpacity="0.75"
-        strokeWidth="3"
-        strokeLinejoin="round"
-      />
-    </>
-  );
-}
+// The FAR pair bends exactly like the near pair (same angles, same timing), so the
+// two read as mirror images; its SVG is then flipped and foreshortened.
+const FAR_FOREWING: Seg[] = [
+  ["M", [200, 96]],
+  ["C", [152, 10], [56, -10], [26, 26]],
+  ["C", [2, 56], [56, 100], [200, 96]],
+  ["Z"],
+];
+const FAR_HINDWING: Seg[] = [
+  ["M", [200, 104]],
+  ["C", [150, 112], [72, 134], [64, 166]],
+  ["C", [58, 192], [130, 184], [200, 104]],
+  ["Z"],
+];
+const FAR_REST = { fore: bentPath(FAR_FOREWING, 4), hind: bentPath(FAR_HINDWING, 4) };
+const FAR_ANIM = { fore: nearFrames(FAR_FOREWING), hind: nearFrames(FAR_HINDWING) };
 
 export default function MsBeeMascot({
   className = "",
@@ -116,7 +107,6 @@ export default function MsBeeMascot({
   const uid = useId().replace(/:/g, "");
   const nearFill = `msbee-near-${uid}`;
   const farFill = `msbee-far-${uid}`;
-  const beat = (stroke: number[]) => (reduce ? undefined : { animate: { rotate: stroke }, transition: BEAT });
 
   return (
     <div className={className}>
@@ -140,9 +130,18 @@ export default function MsBeeMascot({
               </linearGradient>
             </defs>
             <g transform="translate(200 100) scale(0.5 1) translate(-200 -100)">
-              <motion.g style={{ transformOrigin: "200px 100px" }} {...beat(FAR_STROKE)}>
-                <WingPair fill={`url(#${farFill})`} stroke="#38bdf8" />
-              </motion.g>
+              {(["fore", "hind"] as const).map((part) => (
+                <motion.path
+                  key={part}
+                  d={FAR_REST[part]}
+                  {...(reduce ? {} : { animate: { d: FAR_ANIM[part] }, transition: BEAT })}
+                  fill={`url(#${farFill})`}
+                  stroke="#38bdf8"
+                  strokeOpacity="0.75"
+                  strokeWidth="3"
+                  strokeLinejoin="round"
+                />
+              ))}
             </g>
           </svg>
 

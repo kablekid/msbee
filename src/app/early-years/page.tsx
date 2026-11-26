@@ -7,7 +7,7 @@ import CTABanner from "@/components/CTABanner";
 import FAQAccordion from "@/components/FAQAccordion";
 import PageHero from "@/components/PageHero";
 import SectionHeading from "@/components/SectionHeading";
-import { centerPhotos, earlyYears, earlyYearsFocus, formatEtb, site } from "@/lib/data";
+import { centerPhotos, earlyYears, earlyYearsFocus, site } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Early Years & Daycare",
@@ -39,8 +39,6 @@ export default function EarlyYearsPage() {
                   className="rounded-3xl bg-green-50 p-6 text-center ring-1 ring-green-100 transition hover:-translate-y-2 hover:shadow-lg"
                 >
                   <p className="font-display text-lg font-medium">{o.label}</p>
-                  <p className="mt-2 font-display text-2xl font-semibold text-berry-500">{formatEtb(o.price)}</p>
-                  <p className="text-sm text-hive-700">{o.unit}</p>
                 </AnimatedSection>
               ))}
             </div>

@@ -8,21 +8,12 @@ import FAQAccordion from "@/components/FAQAccordion";
 import PageHero from "@/components/PageHero";
 import PhotoStrip from "@/components/PhotoStrip";
 import SectionHeading from "@/components/SectionHeading";
-import { centerPhotos, earlyYears, focusGroup, formatEtb, oneToOne, online, subjects, vip } from "@/lib/data";
+import { centerPhotos, focusGroup, oneToOne, online, subjects, vip } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Programs & Fees",
-  description: "Focus group, one-to-one, VIP intensive, and online tutoring fees at Ms Bee Educational Support, Addis Ababa.",
+  title: "Programs",
+  description: "Focus group, one-to-one, VIP intensive, and online tutoring at Ms Bee Educational Support, Addis Ababa.",
 };
-
-function Price({ value, unit = "/ month", className = "" }: { value: number; unit?: string; className?: string }) {
-  return (
-    <span className={className}>
-      <span className="font-display text-2xl font-semibold sm:text-3xl">{formatEtb(value)}</span>
-      <span className="text-sm opacity-80"> {unit}</span>
-    </span>
-  );
-}
 
 function StepBadge({ n, color }: { n: number; color: string }) {
   return (
@@ -42,8 +33,8 @@ export default function ProgramsPage() {
     <>
       <PageHero
         eyebrow="Kindergarten – High School"
-        title="Programs & Fees"
-        text="Flexible tutoring options for every learner. All fees are monthly and paid in advance."
+        title="Our Programs"
+        text="Flexible tutoring options for every learner. Call or WhatsApp us for current fees."
         gradient="from-sky-100 via-sky-50 to-[#fffdf7]"
       />
 
@@ -71,9 +62,8 @@ export default function ProgramsPage() {
                   </div>
                   <ul className="mt-5 space-y-3">
                     {g.options.map((o) => (
-                      <li key={o.label} className="flex flex-wrap items-baseline justify-between gap-2 border-b border-honey-200 pb-3 last:border-0">
-                        <span className="font-semibold">{o.label}</span>
-                        <Price value={o.price} className="text-berry-500" />
+                      <li key={o.label} className="flex items-center gap-3 border-b border-honey-200 pb-3 font-semibold last:border-0">
+                        <Check className="h-5 w-5 shrink-0 text-leaf-500" /> {o.label}
                       </li>
                     ))}
                   </ul>
@@ -101,7 +91,6 @@ export default function ProgramsPage() {
               <div key={o.label} className="rounded-3xl bg-blue-50 p-6 text-center transition hover:-translate-y-1 hover:shadow-lg">
                 <p className="font-semibold">One-to-One Session</p>
                 <p className="text-hive-700">{o.label}</p>
-                <Price value={o.price} className="mt-2 block text-berry-500" />
               </div>
             ))}
           </div>
@@ -118,14 +107,14 @@ export default function ProgramsPage() {
           </div>
           <div className="grid gap-8 p-6 sm:p-8 md:grid-cols-[1fr_auto_1.3fr] md:items-center">
             <ul className="space-y-3 text-lg">
-              <li className="flex items-center gap-3"><VipIcon className="h-6 w-6 text-purple-600" /> {formatEtb(vip.hourly)} / hour</li>
               <li className="flex items-center gap-3"><Clock className="h-6 w-6 text-purple-600" /> {vip.days}</li>
-              <li className="flex items-center gap-3"><Check className="h-6 w-6 text-purple-600" /> {formatEtb(vip.monthly)} / month</li>
+              <li className="flex items-center gap-3"><VipIcon className="h-6 w-6 text-purple-600" /> Intensive, results-focused</li>
+              <li className="flex items-center gap-3"><Check className="h-6 w-6 text-purple-600" /> Fully flexible schedule</li>
             </ul>
             <div className="mx-auto flex h-40 w-40 flex-col items-center justify-center rounded-full bg-purple-700 text-white shadow-xl ring-8 ring-honey-300 transition hover:scale-105 hover:rotate-3">
               <Badge className="h-7 w-7 text-honey-300" />
-              <span className="font-display text-4xl font-semibold">{(vip.monthly / 1000).toFixed(0)},000</span>
-              <span className="rounded-full bg-honey-400 px-3 text-sm font-bold text-hive-900">ETB / month</span>
+              <span className="font-display text-4xl font-semibold">VIP</span>
+              <span className="rounded-full bg-honey-400 px-3 text-sm font-bold text-hive-900">5 days / week</span>
             </div>
             <div className="rounded-3xl bg-purple-50 p-6">
               <p className="font-display text-lg font-medium">The VIP program includes:</p>
@@ -147,7 +136,7 @@ export default function ProgramsPage() {
             <StepBadge n={4} color="bg-white text-green-700" />
             <div>
               <h2 className="text-2xl font-semibold">Early Years Readiness Program</h2>
-              <p className="text-green-100">Weekend program for young learners — from {formatEtb(earlyYears.options[0].price)} / month</p>
+              <p className="text-green-100">Weekend program for young learners: group, one-to-one, and siblings options</p>
             </div>
           </div>
           <Link href="/early-years" className="rounded-full bg-white px-6 py-3 font-bold text-green-700 transition hover:bg-green-50">
@@ -166,7 +155,6 @@ export default function ProgramsPage() {
           </div>
           <div className="flex flex-col items-center gap-6 p-6 sm:flex-row sm:p-8">
             <span className="flex h-20 w-20 items-center justify-center rounded-full bg-pink-100 text-pink-600"><OnlineIcon className="h-10 w-10" /></span>
-            <Price value={online.price} unit="per month" className="text-berry-500" />
             <span className="rounded-full bg-pink-50 px-5 py-2 font-bold text-pink-700">{online.schedule}</span>
           </div>
         </AnimatedSection>
