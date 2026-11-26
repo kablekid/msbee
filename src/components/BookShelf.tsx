@@ -135,49 +135,53 @@ export default function BookShelf() {
               exit={{ opacity: 0, y: 40, scale: 0.95 }}
               transition={{ type: "spring", stiffness: 260, damping: 26 }}
               onClick={(e) => e.stopPropagation()}
-              className="relative my-auto grid w-full max-w-3xl gap-6 rounded-[2rem] bg-white p-5 shadow-2xl sm:grid-cols-[0.9fr_1.1fr] sm:p-8"
+              className="relative my-auto flex max-h-[calc(100dvh-2rem)] w-full max-w-3xl flex-col overflow-hidden rounded-[2rem] bg-white shadow-2xl"
             >
               <button onClick={() => setOpen(null)} className="absolute top-3 right-3 z-10 rounded-full bg-honey-100 p-2 hover:bg-honey-200" aria-label="Close">
                 <X className="h-5 w-5" />
               </button>
-              <motion.div
-                initial={{ rotateY: -35 }}
-                animate={{ rotateY: 0 }}
-                transition={{ type: "spring", stiffness: 120, damping: 14, delay: 0.05 }}
-                style={{ transformPerspective: 1000 }}
-                className="relative mx-auto aspect-[904/1280] w-48 overflow-hidden rounded-r-2xl rounded-l-md shadow-xl sm:w-full"
-              >
-                <Image src={open.cover} alt={`${open.title} cover`} fill sizes="(min-width: 640px) 320px, 192px" className="object-cover" />
-              </motion.div>
-              <div className="flex flex-col">
-                <span className={`self-start rounded-full px-3 py-1 text-xs font-bold text-white ${open.accent}`}>
-                  {open.subject} · {open.level}
-                </span>
-                <h3 className="mt-3 text-3xl font-semibold">{open.title}</h3>
-                <p className="font-semibold text-honey-700">{open.series}</p>
-                <p className="mt-4 text-hive-700">{open.description}</p>
-                <p className="mt-5 font-display font-medium">Skills practised</p>
-                <ul className="mt-2 space-y-1.5">
-                  {open.skills.map((s) => (
-                    <li key={s} className="flex items-center gap-2 font-semibold">
-                      <Check className="h-5 w-5 text-leaf-500" /> {s}
-                    </li>
-                  ))}
-                </ul>
-                {open.publisher && (
-                  <p className="mt-5 text-sm text-hive-700">
-                    Published by {open.publisher}
-                    {open.year ? ` · ${open.year}` : ""}
-                  </p>
-                )}
-                <a
-                  href={orderLink(open)}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center justify-center gap-2 rounded-full bg-green-500 px-6 py-3.5 font-bold text-white shadow-lg shadow-green-500/30 transition hover:bg-green-600 sm:mt-auto"
+              {/* Phones: small cover beside the title, details below. Larger screens: cover on the left. */}
+              <div className="grid grid-cols-[6rem_1fr] gap-x-4 gap-y-4 overflow-y-auto p-5 sm:grid-cols-[0.9fr_1.1fr] sm:grid-rows-[auto_1fr] sm:gap-x-6 sm:p-8">
+                <motion.div
+                  initial={{ rotateY: -35 }}
+                  animate={{ rotateY: 0 }}
+                  transition={{ type: "spring", stiffness: 120, damping: 14, delay: 0.05 }}
+                  style={{ transformPerspective: 1000 }}
+                  className="relative aspect-[904/1280] w-full self-start overflow-hidden rounded-r-xl rounded-l-md shadow-xl sm:row-span-2 sm:rounded-r-2xl"
                 >
-                  <MessageCircle className="h-5 w-5" /> Order on WhatsApp
-                </a>
+                  <Image src={open.cover} alt={`${open.title} cover`} fill sizes="(min-width: 640px) 320px, 96px" className="object-cover" />
+                </motion.div>
+                <div className="flex flex-col pr-8 sm:pr-0">
+                  <span className={`self-start rounded-full px-3 py-1 text-xs font-bold text-white ${open.accent}`}>
+                    {open.subject} · {open.level}
+                  </span>
+                  <h3 className="mt-2 text-2xl leading-tight font-semibold sm:mt-3 sm:text-3xl">{open.title}</h3>
+                  <p className="mt-1 text-sm font-semibold text-honey-700 sm:text-base">{open.series}</p>
+                </div>
+                <div className="col-span-2 flex flex-col sm:col-span-1 sm:col-start-2">
+                  <p className="text-hive-700">{open.description}</p>
+                  <ul className="mt-3 flex flex-wrap gap-2 sm:mt-5 sm:block sm:space-y-1.5">
+                    {open.skills.map((s) => (
+                      <li key={s} className="flex items-center gap-1.5 rounded-full bg-green-50 px-3 py-1 text-sm font-semibold sm:gap-2 sm:bg-transparent sm:p-0 sm:text-base">
+                        <Check className="h-4 w-4 text-leaf-500 sm:h-5 sm:w-5" /> {s}
+                      </li>
+                    ))}
+                  </ul>
+                  {open.publisher && (
+                    <p className="mt-3 text-sm text-hive-700 sm:mt-5">
+                      Published by {open.publisher}
+                      {open.year ? ` · ${open.year}` : ""}
+                    </p>
+                  )}
+                  <a
+                    href={orderLink(open)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-green-500 px-6 py-3.5 font-bold text-white shadow-lg shadow-green-500/30 transition hover:bg-green-600 sm:mt-auto"
+                  >
+                    <MessageCircle className="h-5 w-5" /> Order on WhatsApp
+                  </a>
+                </div>
               </div>
             </motion.div>
           </motion.div>
