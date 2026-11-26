@@ -51,7 +51,7 @@ One-time setup:
    - `GOOGLE_SHEETS_WEBHOOK_SECRET` = the same value as `SECRET`
 6. Redeploy, send a test registration, and check the **Registrations** tab.
 
-Rows land on a **Registrations** tab (created automatically) with a **Status** column set to `New` for staff to update.
+Registrations go on the **Registrations** tab. The script finds the heading row (the one with "Parent name"), matches columns by heading, and fills the first empty numbered row, keeping the sheet's numbering, formatting and Status dropdowns (set to `New` when the dropdown has that option). On an empty tab it creates a simple heading row.
 If you edit the script later, use **Deploy → Manage deployments → Edit → New version** so the URL stays the same.
 Without the two variables, production refuses the form (asking parents to call) and local dev just logs it.
 
