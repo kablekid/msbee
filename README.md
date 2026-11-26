@@ -31,11 +31,29 @@ npm run lint
 All text — contact info, programs, camp themes, values, FAQs, gallery — lives in
 [`src/lib/data.ts`](src/lib/data.ts). Real photos live in `public/photos/`; add a `photo` path to a `gallery` entry to show it (photo tiles span two rows). Remaining emoji tiles are placeholders.
 
-## Contact form
+## Contact form → Google Sheet
 
 The form validates in the browser and posts to `POST /api/contact` ([`src/app/api/contact/route.ts`](src/app/api/contact/route.ts)),
-which validates again with the same rules (`src/lib/validation.ts`). Right now the route only logs each submission on the server.
-To receive inquiries by email, replace the `TODO` in the route with a call to an email service such as Resend or SendGrid.
+which validates again with the same rules (`src/lib/validation.ts`) and then adds the registration as a row in a Google Sheet,
+via a small Apps Script web app ([`scripts/google-sheets/Code.gs`](scripts/google-sheets/Code.gs)).
+If the sheet can't be reached, the parent is asked to call or WhatsApp instead of being told it worked.
+
+One-time setup:
+
+1. Create a Google Sheet (e.g. "Ms Bee Registrations") in the center's Google account.
+2. In the sheet: **Extensions → Apps Script**. Replace the editor contents with `scripts/google-sheets/Code.gs` and save.
+3. **Project Settings (gear) → Script Properties → Add property**: name `SECRET`, value a long random string
+   (any password generator; keep it private).
+4. **Deploy → New deployment →** type **Web app**. Execute as: **Me**. Who has access: **Anyone**. Deploy, approve the
+   permissions prompt, and copy the **Web app URL** (ends in `/exec`).
+5. In Vercel → `msbee-website` → **Settings → Environment Variables**, add for Production and Preview:
+   - `GOOGLE_SHEETS_WEBHOOK_URL` = the Web app URL
+   - `GOOGLE_SHEETS_WEBHOOK_SECRET` = the same value as `SECRET`
+6. Redeploy, send a test registration, and check the **Registrations** tab.
+
+Rows land on a **Registrations** tab (created automatically) with a **Status** column set to `New` for staff to update.
+If you edit the script later, use **Deploy → Manage deployments → Edit → New version** so the URL stays the same.
+Without the two variables, production refuses the form (asking parents to call) and local dev just logs it.
 
 ## Deployment
 
