@@ -11,7 +11,8 @@
  */
 
 var SHEET_NAME = "Registrations";
-var HEADERS = ["Received", "Parent name", "Email", "Phone", "Program", "Child's age", "Message", "Status"];
+var TIME_ZONE = "Africa/Addis_Ababa";
+var HEADERS = ["Date", "Parent name", "Email", "Phone", "Program", "Child's age", "Message", "Status"];
 
 function doPost(e) {
   try {
@@ -24,13 +25,18 @@ function doPost(e) {
     try {
       var ss = SpreadsheetApp.getActiveSpreadsheet();
       var sheet = ss.getSheetByName(SHEET_NAME) || ss.insertSheet(SHEET_NAME);
-      if (sheet.getLastRow() === 0) {
-        sheet.appendRow(HEADERS);
-        sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight("bold");
+      // Keep the header row up to date (also fixes sheets made with an older version).
+      // Row 1 is only rewritten when it is an old header ("Received"); if it holds a
+      // registration (e.g. the header was deleted), a new header row is inserted above it.
+      var first = sheet.getLastRow() === 0 ? "" : String(sheet.getRange(1, 1).getValue());
+      if (sheet.getLastRow() > 0 && first !== "Received" && first !== "Date") sheet.insertRowBefore(1);
+      var header = sheet.getRange(1, 1, 1, HEADERS.length);
+      if (header.getValues()[0].join() !== HEADERS.join()) {
+        header.setValues([HEADERS]).setFontWeight("bold");
         sheet.setFrozenRows(1);
       }
       sheet.appendRow([
-        new Date(),
+        Utilities.formatDate(new Date(), TIME_ZONE, "yyyy-MM-dd HH:mm"),
         clean(data.parentName),
         clean(data.email),
         clean(data.phone),
